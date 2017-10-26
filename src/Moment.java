@@ -15,4 +15,16 @@ public class Moment {
     public boolean equals (Moment m){
         return m.name.equals(this.name);
     }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public Image getImage(){
+        return this.image;
+    }
+
+    public map<Account, int> getParticipants() {
+        return this.participants;
+    }
 }
