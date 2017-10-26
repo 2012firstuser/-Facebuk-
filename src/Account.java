@@ -36,6 +36,10 @@ public abstract class Account {
         this.moments = moments;
     }
 
+    public void setName(String name) {this.name = name;}
+
+    public void setImage(Image image) {this.image = image;}
+
     public boolean equals (Object o) {
         return this.name.equals(o.getName());
     }
