@@ -38,4 +38,14 @@ public abstract class Account {
     public boolean equals (Object o) {
         return this.name.equals(o.getName());
     }
+
+    public Moment getOverallHappiestMoment(){
+        Moment happiestMoment;
+        for(Moment m: this.moments.values()){
+            if(happiestMoment == null || happiestMoment.getParticipants.get(this) < m.getParticipants.get(this)){
+                happiestMoment = m;
+            }
+        }
+        return happiestMoment;
+    }
 }

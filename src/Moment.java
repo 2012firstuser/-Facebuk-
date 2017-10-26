@@ -12,10 +12,6 @@ public class Moment {
         }
     }
 
-    public boolean equals (Moment m){
-        return m.name.equals(this.name);
-    }
-
     public String getName(){
         return this.name;
     }
@@ -26,5 +22,9 @@ public class Moment {
 
     public map<Account, int> getParticipants() {
         return this.participants;
+    }
+
+    public boolean equals (Object o){
+        return o.getName().equals(this.name);
     }
 }
