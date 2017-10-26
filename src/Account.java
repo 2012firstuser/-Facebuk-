@@ -20,11 +20,11 @@ public abstract class Account {
     }
 
     public ArrayList<Moment> getMoments () {
-        return moments;
+        return this.moments;
     }
 
     public ArrayList<Account> getFriends() {
-        return friends;
+        return this.friends;
     }
 
     public void setFriends (ArrayList<Account> friends) {
@@ -39,13 +39,40 @@ public abstract class Account {
         return this.name.equals(o.getName());
     }
 
-    public Moment getOverallHappiestMoment(){
+    public Account getFriendWithWhomIAmHappiest (){
+        map<Account, float> friendMap;
+        Account happiestFriend;
+
+        for(Account a : this.friends){
+            friendMap.push(a.getName(), 0);
+        }
+
+        for(Moment m : this.moments){
+            for(Account par : m.getParticipants().keySet()){
+                if(friendMap.containsKey(par)){
+                    friendMap.put(par, friendMap.get(par) + m.getParticipants().get(par));
+                }
+            }
+        }
+
+        for(Account a : friendMap.keySet()){
+            if(friendMap == null || friendMap.get(happiestFriend) < friendMap.get(a)){
+                happiestFriend = a;
+            }
+        }
+
+        return happiestFriend;
+    }
+
+    public Moment getOverallHappiestMoment (){
         Moment happiestMoment;
-        for(Moment m: this.moments.values()){
+
+        for(Moment m : this.moments.values()){
             if(happiestMoment == null || happiestMoment.getParticipants.get(this) < m.getParticipants.get(this)){
                 happiestMoment = m;
             }
         }
+
         return happiestMoment;
     }
 }
