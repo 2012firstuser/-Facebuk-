@@ -90,8 +90,7 @@ public abstract class Account {
     }
 
     public ArrayList<Account> findMaximumCliqueOfFriends () {
-        //TODO: Change this function
-        return new ArrayList<Account>();
+        return this.analyzeNode(this, new ArrayList<Account>());
     }
 
     private ArrayList<Account> analyzeNode (Account currentNode, ArrayList<Account> visitedNodes) {
