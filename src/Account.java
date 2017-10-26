@@ -42,22 +42,25 @@ public abstract class Account {
 
     public Account getFriendWithWhomIAmHappiest (){
         HashMap<Account, Float> friendMap = new HashMap<>();
+        HashMap<Account, Integer> friendCount = new HashMap<>();
         Account happiestFriend = null;
 
         for(Account a : this.friends){
             friendMap.put(a, (float) 0);
+            friendCount.put(a, 0);
         }
 
         for(Moment m : this.moments){
             for(Account par : m.getParticipants().keySet()){
                 if(friendMap.containsKey(par)){
                     friendMap.put(par, friendMap.get(par) + m.getParticipants().get(par));
+                    friendCount.put(par, friendCount.get(par) + 1);
                 }
             }
         }
 
         for(Account a : friendMap.keySet()){
-            if(happiestFriend == null || friendMap.get(happiestFriend) < friendMap.get(a)){
+            if(happiestFriend == null || (friendMap.get(happiestFriend)/friendCount.get(happiestFriend)) < (friendMap.get(a)/friendCount.get(a))){
                 happiestFriend = a;
             }
         }
@@ -67,13 +70,22 @@ public abstract class Account {
 
     public Moment getOverallHappiestMoment (){
         Moment happiestMoment = null;
-
-        for(Moment m : moments){
-            if(happiestMoment == null || happiestMoment.getParticipants().get(this) < m.getParticipants().get(this)){
+        for(Moment m : moments) {
+            if (happiestMoment == null || momentMeanValue(m) > momentMeanValue(happiestMoment)) {
                 happiestMoment = m;
             }
         }
-
         return happiestMoment;
+    }
+
+    private float momentMeanValue(Moment m){
+        float totalHappiness = 0;
+        HashMap<Account, Float> parsMap = m.getParticipants();
+
+        for(Account par : parsMap.keySet()){
+            totalHappiness += parsMap.get(par);
+        }
+
+        return totalHappiness / parsMap.size();
     }
 }
