@@ -3,6 +3,7 @@
     Todo: Class Info
  */
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -75,5 +76,45 @@ public abstract class Account {
         }
 
         return happiestMoment;
+    }
+
+    public ArrayList<Account> findMaximumCliqueOfFriends () {
+        //TODO: Change this function
+        return new ArrayList<Account>();
+    }
+
+    private ArrayList<Account> analyzeNode (Account currentNode, ArrayList<Account> visitedNodes) {
+        int matchedNodes = 0;
+        ArrayList<Account> unvisitedNodes = new ArrayList<Account>();
+
+        for(Account a: currentNode.getFriends()) {
+            if (visitedNodes.contains(a)) {
+                matchedNodes++;
+            }
+            else {
+                unvisitedNodes.add(a);
+            }
+        }
+
+        if(matchedNodes < visitedNodes.size()) {
+            return visitedNodes;
+        }
+
+        ArrayList<Account> currentVisitedNodes = new ArrayList<>(visitedNodes);
+        currentVisitedNodes.add(currentNode);
+
+        ArrayList<Account> biggestClique = new ArrayList<>();
+        int biggestCliqueCount = 0;
+
+        for(Account node: unvisitedNodes) {
+            ArrayList<Account> currentClique = analyzeNode(node, currentVisitedNodes);
+
+            if(currentClique.size() > biggestCliqueCount) {
+                biggestCliqueCount = currentClique.size();
+                biggestClique = new ArrayList<>(currentClique);
+            }
+        }
+
+        return biggestClique;
     }
 }
