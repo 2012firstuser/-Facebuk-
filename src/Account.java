@@ -127,4 +127,25 @@ public abstract class Account {
 
         return biggestClique;
     }
+
+    public static boolean isClique (ArrayList<Account> set) {
+        for (Account a : set) {
+            int matches = 0;
+
+            for(Account friend: a.getFriends()) {
+                if(set.contains(friend)) {
+                    matches++;
+                }
+                else {
+                    return false;
+                }
+            }
+
+            if(matches < set.size() - 1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
