@@ -6,7 +6,8 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public abstract class Account {
+
+public abstract class Account implements Object {
     private String name;
     private Image image;
     private ArrayList<Account> friends;
