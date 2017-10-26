@@ -34,4 +34,8 @@ public abstract class Account {
     public void setMoments (ArrayList<Moment> moments) {
         this.moments = moments;
     }
+
+    public boolean equals (Object o) {
+        return this.name.equals(o.getName());
+    }
 }
