@@ -11,4 +11,8 @@ public class Moment {
             this.participants.put(participants.get(i), smileValues.get(i));
         }
     }
+
+    public boolean equals (Moment m){
+        return m.name.equals(this.name);
+    }
 }
