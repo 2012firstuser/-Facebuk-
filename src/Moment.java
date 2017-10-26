@@ -1,13 +1,16 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Moment {
 
     private String name;
     private Image image;
-    private map<Account, int> participants
+    private HashMap<Account, Float> participants;
 
-    public Moment (String name, Image image, ArrayList participants, ArrayList smileValues){
+    public Moment (String name, Image image, ArrayList<Account> participants, ArrayList<Float> smileValues){
         this.name = name;
         this.image = image;
-        for(int i = 0; i < participants.length; i ++){
+        for(int i = 0; i < participants.size(); i ++){
             this.participants.put(participants.get(i), smileValues.get(i));
         }
     }
@@ -20,7 +23,7 @@ public class Moment {
         return this.image;
     }
 
-    public map<Account, int> getParticipants() {
+    public HashMap<Account, Float> getParticipants() {
         return this.participants;
     }
 

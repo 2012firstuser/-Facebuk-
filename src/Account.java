@@ -4,6 +4,7 @@
  */
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class Account {
     private String name;
@@ -40,11 +41,11 @@ public abstract class Account {
     }
 
     public Account getFriendWithWhomIAmHappiest (){
-        map<Account, float> friendMap;
-        Account happiestFriend;
+        HashMap<Account, Float> friendMap = new HashMap<>();
+        Account happiestFriend = null;
 
         for(Account a : this.friends){
-            friendMap.push(a.getName(), 0);
+            friendMap.put(a, (float) 0);
         }
 
         for(Moment m : this.moments){
@@ -56,7 +57,7 @@ public abstract class Account {
         }
 
         for(Account a : friendMap.keySet()){
-            if(friendMap == null || friendMap.get(happiestFriend) < friendMap.get(a)){
+            if(happiestFriend == null || friendMap.get(happiestFriend) < friendMap.get(a)){
                 happiestFriend = a;
             }
         }
@@ -65,10 +66,10 @@ public abstract class Account {
     }
 
     public Moment getOverallHappiestMoment (){
-        Moment happiestMoment;
+        Moment happiestMoment = null;
 
-        for(Moment m : this.moments.values()){
-            if(happiestMoment == null || happiestMoment.getParticipants.get(this) < m.getParticipants.get(this)){
+        for(Moment m : moments){
+            if(happiestMoment == null || happiestMoment.getParticipants().get(this) < m.getParticipants().get(this)){
                 happiestMoment = m;
             }
         }
