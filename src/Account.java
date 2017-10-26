@@ -10,4 +10,28 @@ public abstract class Account {
     private Image image;
     private ArrayList<Account> friends;
     private ArrayList<Moment> moments;
+
+    public String getName () {
+        return this.name;
+    }
+
+    public Image getImage () {
+        return this.image;
+    }
+
+    public ArrayList<Moment> getMoments () {
+        return moments;
+    }
+
+    public ArrayList<Account> getFriends() {
+        return friends;
+    }
+
+    public void setFriends (ArrayList<Account> friends) {
+        this.friends = friends;
+    }
+
+    public void setMoments (ArrayList<Moment> moments) {
+        this.moments = moments;
+    }
 }
