@@ -8,41 +8,41 @@ import java.util.HashMap;
 
 
 public abstract class Account implements Object {
-    private String name;
-    private Image image;
-    private ArrayList<Account> friends;
-    private ArrayList<Moment> moments;
+    private String _name;
+    private Image _image;
+    private ArrayList<Account> _friends;
+    private ArrayList<Moment> _moments;
 
-    public String getName () {
-        return this.name;
+    public String getNameame() {
+        return this._name;
     }
 
     public Image getImage () {
-        return this.image;
+        return this._image;
     }
 
     public ArrayList<Moment> getMoments () {
-        return this.moments;
+        return this._moments;
     }
 
     public ArrayList<Account> getFriends() {
-        return this.friends;
+        return this._friends;
     }
 
     public void setFriends (ArrayList<Account> friends) {
-        this.friends = friends;
+        this._friends = friends;
     }
 
     public void setMoments (ArrayList<Moment> moments) {
-        this.moments = moments;
+        this._moments = moments;
     }
 
-    public void setName(String name) {this.name = name;}
+    public void setName(String _name) {this._name = _name;}
 
-    public void setImage(Image image) {this.image = image;}
+    public void setImage(Image image) {this._image = image;}
 
     public boolean equals (Object o) {
-        return this.name.equals(o.getName());
+        return this._name.equals(o.getName());
     }
 
     public Account getFriendWithWhomIAmHappiest (){
@@ -50,12 +50,12 @@ public abstract class Account implements Object {
         HashMap<Account, Integer> friendCount = new HashMap<>();
         Account happiestFriend = null;
 
-        for(Account a : this.friends){
+        for(Account a : this._friends){
             friendMap.put(a, (float) 0);
             friendCount.put(a, 0);
         }
 
-        for(Moment m : this.moments){
+        for(Moment m : this._moments){
             for(Account par : m.getParticipants().keySet()){
                 if(friendMap.containsKey(par)){
                     friendMap.put(par, friendMap.get(par) + m.getParticipants().get(par));
@@ -75,7 +75,7 @@ public abstract class Account implements Object {
 
     public Moment getOverallHappiestMoment (){
         Moment happiestMoment = null;
-        for(Moment m : moments) {
+        for(Moment m : _moments) {
             if (happiestMoment == null || momentMeanValue(m) > momentMeanValue(happiestMoment)) {
                 happiestMoment = m;
             }
@@ -83,7 +83,7 @@ public abstract class Account implements Object {
         return happiestMoment;
     }
 
-    private float momentMeanValue(Moment m){
+    protected float momentMeanValue(Moment m){
         float totalHappiness = 0;
         HashMap<Account, Float> parsMap = m.getParticipants();
 
@@ -122,7 +122,7 @@ public abstract class Account implements Object {
         int biggestCliqueCount = 0;
 
         for(Account node: unvisitedNodes) {
-            ArrayList<Account> currentClique = analyzeNode(node, currentVisitedNodes);
+            ArrayList<Account> currentClique = this.analyzeNode(node, currentVisitedNodes);
 
             if(currentClique.size() > biggestCliqueCount) {
                 biggestCliqueCount = currentClique.size();
