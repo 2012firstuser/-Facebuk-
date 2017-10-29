@@ -74,4 +74,23 @@ public class UserTests {
         this._personD.setFriends(personDFriends);
         this._personE.setFriends(personEFriends);
     }
+
+    @Test
+    public void testPeopleInits() {
+        assertEquals(this._personA.getName(), "A");
+        assertEquals(this._personA.getImage(), new Image("A.png"));
+    }
+
+    @Test
+    public void testFriends() {
+        // Person A is friends with E, D, and C
+        final ArrayList<Account> personAFriends = new ArrayList<>();
+
+        personAFriends.add(this._personE);
+        personAFriends.add(this._personD);
+        personAFriends.add(this._personC);
+
+        assertEquals(this._personA.getFriends(), personAFriends);
+
+    }
 }
