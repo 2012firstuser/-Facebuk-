@@ -33,28 +33,28 @@ public class UserTests {
     private void createConnections() {
 
         // Person A is friends with E, D, and C
-        final ArrayList<Account> personAFriends = new ArrayList<Account>();
+        final ArrayList<Account> personAFriends = new ArrayList<>();
 
         personAFriends.add(this._personE);
         personAFriends.add(this._personD);
         personAFriends.add(this._personC);
 
         // Person B is friends with E, D, and C
-        final ArrayList<Account> personBFriends = new ArrayList<Account>();
+        final ArrayList<Account> personBFriends = new ArrayList<>();
 
         personBFriends.add(this._personE);
         personBFriends.add(this._personD);
         personBFriends.add(this._personC);
 
         // Person C is friends with B, A, and D
-        final ArrayList<Account> personCFriends = new ArrayList<Account>();
+        final ArrayList<Account> personCFriends = new ArrayList<>();
 
         personCFriends.add(this._personB);
         personCFriends.add(this._personA);
         personCFriends.add(this._personD);
 
         // Person D is friends with E, A, B, & C
-        final ArrayList<Account> personDFriends = new ArrayList<Account>();
+        final ArrayList<Account> personDFriends = new ArrayList<>();
 
         personDFriends.add(this._personE);
         personDFriends.add(this._personA);
@@ -62,7 +62,7 @@ public class UserTests {
         personDFriends.add(this._personC);
 
         // Person E is friends with A, B, D
-        final ArrayList<Account> personEFriends = new ArrayList<Account>();
+        final ArrayList<Account> personEFriends = new ArrayList<>();
 
         personEFriends.add(this._personA);
         personEFriends.add(this._personB);
