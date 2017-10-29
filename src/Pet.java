@@ -9,4 +9,5 @@ public class Pet extends Account{
         this.setName(name);
         this.setImage(image);
     }
+
 }

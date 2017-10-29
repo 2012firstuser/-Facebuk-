@@ -13,7 +13,7 @@ public abstract class Account implements Object {
     private ArrayList<Account> _friends;
     private ArrayList<Moment> _moments;
 
-    public String getNameame() {
+    public String getName() {
         return this._name;
     }
 
