@@ -5,12 +5,12 @@ public class Moment {
 
     private String name;
     private Image image;
-    private HashMap<Account, Float> participants;
+    private HashMap<Account, Float> participants = new HashMap<Account, Float>();
 
     public Moment (String name, Image image, ArrayList<Account> participants, ArrayList<Float> smileValues){
         this.name = name;
         this.image = image;
-        for(int i = 0; i < participants.size(); i ++){
+        for(int i = 0; i < participants.size(); i++){
             this.participants.put(participants.get(i), smileValues.get(i));
         }
     }
@@ -31,7 +31,6 @@ public class Moment {
         if (o instanceof ourObject) {
             return ((ourObject) o).getName().equals(this.getName());
         }
-
         return false;
     }
 }
