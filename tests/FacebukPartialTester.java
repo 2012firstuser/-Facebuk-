@@ -68,8 +68,8 @@ public class FacebukPartialTester {
 
 		// Malia and Bo
 		final ArrayList maliaAndBo = new ArrayList();
-		maliaAndSunny.add(_malia);
-		maliaAndSunny.add(_bo);
+		maliaAndBo.add(_malia);
+		maliaAndBo.add(_bo);
 
 		// Michelle
 		final ArrayList michelleList = new ArrayList();
