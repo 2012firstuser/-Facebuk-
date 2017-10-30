@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -78,7 +79,6 @@ public class UserTests {
     @Test
     public void testPeopleInits() {
         assertEquals(this._personA.getName(), "A");
-        assertEquals(this._personA.getImage(), new Image("A.png"));
     }
 
     @Test
@@ -92,5 +92,24 @@ public class UserTests {
 
         assertEquals(this._personA.getFriends(), personAFriends);
 
+    }
+
+    @Test
+    public void testStrings() {
+        assertEquals("sweg", "sweg");
+        assertEquals(new Person("test", new Image("Dank")), new Person("test", new Image("Dank")));
+//        assertTrue((new Person("test", new Image("Dank"))).equals(new Person("test", new Image("Dank"))));
+    }
+
+    @Test
+    public void testCliques() {
+        final ArrayList<Account> personAMaxClique = new ArrayList<>();
+
+        personAMaxClique.add(this._personA);
+        personAMaxClique.add(this._personC);
+        personAMaxClique.add(this._personE);
+        personAMaxClique.add(this._personD);
+
+        assertEquals(personAMaxClique, this._personA.findMaximumCliqueOfFriends());
     }
 }

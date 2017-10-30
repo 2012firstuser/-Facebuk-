@@ -27,7 +27,11 @@ public class Moment {
         return this.participants;
     }
 
-    public boolean equals (Object o){
-        return o.getName().equals(this.name);
+    public boolean equals (Object o) {
+        if (o instanceof ourObject) {
+            return ((ourObject) o).getName().equals(this.getName());
+        }
+
+        return false;
     }
 }

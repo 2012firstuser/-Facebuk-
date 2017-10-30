@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public abstract class Account implements Object {
+public abstract class Account implements ourObject {
     private String _name;
     private Image _image;
     private ArrayList<Account> _friends;
@@ -42,7 +42,11 @@ public abstract class Account implements Object {
     public void setImage(Image image) {this._image = image;}
 
     public boolean equals (Object o) {
-        return this._name.equals(o.getName());
+        if (o instanceof ourObject) {
+            return ((ourObject) o).getName().equals(this.getName());
+        }
+
+        return false;
     }
 
     public Account getFriendWithWhomIAmHappiest (){

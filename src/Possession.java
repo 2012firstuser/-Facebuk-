@@ -1,4 +1,4 @@
-public class Possession implements Object {
+public class Possession implements ourObject {
     private String name;
     private Image image;
     private Person owner;
@@ -18,8 +18,10 @@ public class Possession implements Object {
     }
 
     public boolean equals (Object o) {
-        return this.name.equals(o.getName());
+        if (o instanceof ourObject) {
+            return ((ourObject) o).getName().equals(this.getName());
+        }
+
+        return false;
     }
-
-
 }
