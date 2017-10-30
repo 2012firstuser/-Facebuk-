@@ -7,19 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public abstract class Account implements ourObject {
-    private String _name;
-    private Image _image;
+public abstract class Account extends Page {
     private ArrayList<Account> _friends;
     private ArrayList<Moment> _moments;
-
-    public String getName() {
-        return this._name;
-    }
-
-    public Image getImage () {
-        return this._image;
-    }
 
     public ArrayList<Moment> getMoments () {
         return this._moments;
@@ -35,18 +25,6 @@ public abstract class Account implements ourObject {
 
     public void setMoments (ArrayList<Moment> moments) {
         this._moments = moments;
-    }
-
-    public void setName(String _name) {this._name = _name;}
-
-    public void setImage(Image image) {this._image = image;}
-
-    public boolean equals (Object o) {
-        if (o instanceof ourObject) {
-            return ((ourObject) o).getName().equals(this.getName());
-        }
-
-        return false;
     }
 
     public Account getFriendWithWhomIAmHappiest (){
