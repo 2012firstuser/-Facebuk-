@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -47,12 +48,13 @@ public class UserTests {
         personBFriends.add(this._personD);
         personBFriends.add(this._personC);
 
-        // Person C is friends with B, A, and D
+        // Person C is friends with B, A, and D, and E
         final ArrayList<Account> personCFriends = new ArrayList<>();
 
         personCFriends.add(this._personB);
         personCFriends.add(this._personA);
         personCFriends.add(this._personD);
+        personCFriends.add(this._personE);
 
         // Person D is friends with E, A, B, & C
         final ArrayList<Account> personDFriends = new ArrayList<>();
@@ -67,6 +69,7 @@ public class UserTests {
 
         personEFriends.add(this._personA);
         personEFriends.add(this._personB);
+        personEFriends.add(this._personC);
         personEFriends.add(this._personD);
 
         this._personA.setFriends(personAFriends);
@@ -95,10 +98,10 @@ public class UserTests {
     }
 
     @Test
-    public void testStrings() {
+    public void testSameObjects() {
         assertEquals("sweg", "sweg");
         assertEquals(new Person("test", new Image("Dank")), new Person("test", new Image("Dank")));
-//        assertTrue((new Person("test", new Image("Dank"))).equals(new Person("test", new Image("Dank"))));
+        assertEquals(this._personA, new Person("A", new Image("A.png")));
     }
 
     @Test
@@ -110,6 +113,7 @@ public class UserTests {
         personAMaxClique.add(this._personE);
         personAMaxClique.add(this._personD);
 
-        assertEquals(personAMaxClique, this._personA.findMaximumCliqueOfFriends());
+        assertTrue(personAMaxClique.containsAll(this._personA.findMaximumCliqueOfFriends()) &&
+                (this._personA.findMaximumCliqueOfFriends()).containsAll(personAMaxClique));
     }
 }
