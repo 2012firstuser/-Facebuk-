@@ -69,11 +69,10 @@ public abstract class Account implements ourObject {
         }
 
         for(Account a : friendMap.keySet()){
-            if(happiestFriend == null || (friendMap.get(happiestFriend)/friendCount.get(happiestFriend)) < (friendMap.get(a)/friendCount.get(a))){
+            if(!(friendCount.get(a) == 0) && (happiestFriend == null || (friendMap.get(happiestFriend)/friendCount.get(happiestFriend)) < (friendMap.get(a)/friendCount.get(a)))){
                 happiestFriend = a;
             }
         }
-
         return happiestFriend;
     }
 
