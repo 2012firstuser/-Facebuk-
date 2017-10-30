@@ -3,28 +3,28 @@ import java.util.HashMap;
 
 public class Moment implements ourObject{
 
-    private String name;
-    private Image image;
-    private HashMap<Account, Float> participants = new HashMap<Account, Float>();
+    private String _name;
+    private Image _image;
+    private HashMap<Account, Float> _participants = new HashMap<Account, Float>();
 
     public Moment (String name, Image image, ArrayList<Account> participants, ArrayList<Float> smileValues){
-        this.name = name;
-        this.image = image;
+        _name = name;
+        _image = image;
         for(int i = 0; i < participants.size(); i++){
-            this.participants.put(participants.get(i), smileValues.get(i));
+            _participants.put(participants.get(i), smileValues.get(i));
         }
     }
 
     public String getName(){
-        return this.name;
+        return _name;
     }
 
     public Image getImage(){
-        return this.image;
+        return _image;
     }
 
     public HashMap<Account, Float> getParticipants() {
-        return this.participants;
+        return _participants;
     }
 
     public boolean equals (Object o) {
