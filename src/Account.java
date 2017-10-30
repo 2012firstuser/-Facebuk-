@@ -1,11 +1,10 @@
-/*
-    Todo: Name of Class
-    Todo: Class Info
- */
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+/**
+ *
+ */
 
 public abstract class Account extends Page {
     private ArrayList<Account> _friends;
