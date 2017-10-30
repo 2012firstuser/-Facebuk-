@@ -79,11 +79,13 @@ public abstract class Account implements ourObject {
 
     public Moment getOverallHappiestMoment (){
         Moment happiestMoment = null;
+
         for(Moment m : _moments) {
             if (happiestMoment == null || momentMeanValue(m) > momentMeanValue(happiestMoment)) {
                 happiestMoment = m;
             }
         }
+
         return happiestMoment;
     }
 
@@ -142,11 +144,10 @@ public abstract class Account implements ourObject {
             int matches = 0;
 
             for(Account friend: a.getFriends()) {
-                if(set.contains(friend)) {
-                    matches++;
-                }
-                else {
-                    return false;
+                for(Account sub_account : set) {
+                    if(friend.equals(sub_account)) {
+                        matches++;
+                    }
                 }
             }
 

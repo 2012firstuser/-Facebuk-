@@ -115,5 +115,7 @@ public class UserTests {
 
         assertTrue(personAMaxClique.containsAll(this._personA.findMaximumCliqueOfFriends()) &&
                 (this._personA.findMaximumCliqueOfFriends()).containsAll(personAMaxClique));
+
+        assertTrue(Account.isClique(personAMaxClique));
     }
 }

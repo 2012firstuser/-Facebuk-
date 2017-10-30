@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Moment {
+public class Moment implements ourObject{
 
     private String name;
     private Image image;
@@ -31,6 +31,7 @@ public class Moment {
         if (o instanceof ourObject) {
             return ((ourObject) o).getName().equals(this.getName());
         }
+
         return false;
     }
 }
