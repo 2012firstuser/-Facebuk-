@@ -8,23 +8,23 @@ public class Moment implements ourObject{
     private HashMap<Account, Float> _participants = new HashMap<Account, Float>();
 
     public Moment (String name, Image image, ArrayList<Account> participants, ArrayList<Float> smileValues){
-        _name = name;
-        _image = image;
+        this._name = name;
+        this._image = image;
         for(int i = 0; i < participants.size(); i++){
-            _participants.put(participants.get(i), smileValues.get(i));
+            this._participants.put(participants.get(i), smileValues.get(i));
         }
     }
 
     public String getName(){
-        return _name;
+        return this._name;
     }
 
     public Image getImage(){
-        return _image;
+        return this._image;
     }
 
     public HashMap<Account, Float> getParticipants() {
-        return _participants;
+        return this._participants;
     }
 
     public boolean equals (Object o) {
