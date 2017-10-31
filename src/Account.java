@@ -15,8 +15,8 @@ import java.util.HashMap;
  */
 
 public abstract class Account extends Page {
-    private ArrayList<Account> _friends = new ArrayList<>();
-    private ArrayList<Moment> _moments = new ArrayList<>();
+    private ArrayList<Account> _friends = new ArrayList<Account>();
+    private ArrayList<Moment> _moments = new ArrayList<Moment>();
 
     /**
      * Retrieve the moments of a child of Account
@@ -51,10 +51,10 @@ public abstract class Account extends Page {
     public void setMoments (ArrayList<Moment> moments) {
         this._moments = moments;
     }
-
+    public void addMoment (Moment m) {this._moments.add(m);}
     /**
-     * Gets the friend who an account is most happiest with on average
-     * @return an Account
+     * TODO: Bryson, take care of this one :P
+     * @return
      */
     public Account getFriendWithWhomIAmHappiest (){
         HashMap<Account, Float> friendMap = new HashMap<>();
@@ -80,13 +80,12 @@ public abstract class Account extends Page {
                 happiestFriend = a;
             }
         }
-
         return happiestFriend;
     }
 
     /**
-     * Gets the moment with the happiest average smile value
-     * @return happiest moment
+     * TODO: Bryson, take care of this one :P :P
+     * @return
      */
     public Moment getOverallHappiestMoment (){
         Moment happiestMoment = null;
@@ -101,11 +100,11 @@ public abstract class Account extends Page {
     }
 
     /**
-     * Gets the mean value of happiness across moment participants
-     * @param m a moment to get the mean happiness
-     * @return mean value of happiness
+     * TODO: Bryson, take care of this one :P :P: :P
+     * @param m
+     * @return
      */
-    private float momentMeanValue(Moment m){
+    protected float momentMeanValue(Moment m){
         float totalHappiness = 0;
         HashMap<Account, Float> parsMap = m.getParticipants();
 
@@ -121,7 +120,7 @@ public abstract class Account extends Page {
      * trampoline for the recursive method {@see Account#analyzeNode} which determines
      * if each friend of an Account is part of the maximum clique
      *
-     * @return  the biggest {@link ArrayList<Account>} of Accounts in wh`ich everybody
+     * @return  the biggest {@link ArrayList<Account>} of Accounts in which everybody
      *          is a friend with one another.
      */
     public ArrayList<Account> findMaximumCliqueOfFriends () {

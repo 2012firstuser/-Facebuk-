@@ -84,7 +84,19 @@ public class UserTests {
 
         this._momentA = new Moment("A",new Image("A.png" ),
                 new ArrayList<Account>(Stream.of(this._personA, this._personB, this._petA, this._petB).collect(Collectors.toList())),
+                new ArrayList<Float>(Stream.of( 1f,10f,3f,4f).collect(Collectors.toList())));
+        this._personA.addMoment(_momentA);
+        this._personB.addMoment(_momentA);
+        this._petA.addMoment(_momentA);
+        this._petB.addMoment(_momentA);
+
+        this._momentB = new Moment("A",new Image("A.png" ),
+                new ArrayList<Account>(Stream.of(this._personA, this._personC, this._petA, this._petB).collect(Collectors.toList())),
                 new ArrayList<Float>(Stream.of( 1f,2f,3f,4f).collect(Collectors.toList())));
+        this._personA.addMoment(_momentA);
+        this._personB.addMoment(_momentA);
+        this._petA.addMoment(_momentA);
+        this._petB.addMoment(_momentA);
 
         this._personA.setMoments(new ArrayList<Moment>(Stream.of(this._momentA).collect(Collectors.toList())));
     }
@@ -133,4 +145,17 @@ public class UserTests {
 
         assertTrue(Account.isClique(personAMaxClique));
     }
+
+    //Checks that the function only works on friends, not pets or non-friends.
+    //Also checks that the null returns work correctly.
+    @Test
+    public void testOverallHappiestFriend()
+    {
+        assertTrue(_personA.getFriendWithWhomIAmHappiest() == _personC);
+        assertTrue(new Person("T",new Image("test.png")).getFriendWithWhomIAmHappiest() == null);
+        assertTrue(_personA.getOverallHappiestMoment()==_momentA);
+        assertTrue(new Person("T",new Image("test.png")).getOverallHappiestMoment() == null);
+    }
+
+
 }
