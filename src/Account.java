@@ -15,8 +15,8 @@ import java.util.HashMap;
  */
 
 public abstract class Account extends Page {
-    private ArrayList<Account> _friends;
-    private ArrayList<Moment> _moments;
+    private ArrayList<Account> _friends = new ArrayList<>();
+    private ArrayList<Moment> _moments = new ArrayList<>();
 
     /**
      * Retrieve the moments of a child of Account
