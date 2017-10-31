@@ -53,8 +53,8 @@ public abstract class Account extends Page {
     }
 
     /**
-     * TODO: Bryson, take care of this one :P
-     * @return
+     * Gets the friend who an account is most happiest with on average
+     * @return an Account
      */
     public Account getFriendWithWhomIAmHappiest (){
         HashMap<Account, Float> friendMap = new HashMap<>();
@@ -84,8 +84,8 @@ public abstract class Account extends Page {
     }
 
     /**
-     * TODO: Bryson, take care of this one :P :P
-     * @return
+     * Gets the moment with the happiest average smile value
+     * @return happiest moment
      */
     public Moment getOverallHappiestMoment (){
         Moment happiestMoment = null;
@@ -100,11 +100,11 @@ public abstract class Account extends Page {
     }
 
     /**
-     * TODO: Bryson, take care of this one :P :P: :P
-     * @param m
-     * @return
+     * Gets the mean value of happiness across moment participants
+     * @param m a moment to get the mean happiness
+     * @return mean value of happiness
      */
-    protected float momentMeanValue(Moment m){
+    private float momentMeanValue(Moment m){
         float totalHappiness = 0;
         HashMap<Account, Float> parsMap = m.getParticipants();
 
