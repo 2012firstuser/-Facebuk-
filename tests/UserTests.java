@@ -3,7 +3,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -11,6 +10,7 @@ public class UserTests {
     private Person _personA, _personB, _personC, _personD, _personE;
     private Pet _petA, _petB, _petC;
     private Moment _momentA, _momentB, _momentC;
+
     @Before
     public void init() {
         this.initPeople();

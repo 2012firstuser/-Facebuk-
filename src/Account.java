@@ -121,7 +121,7 @@ public abstract class Account extends Page {
      * trampoline for the recursive method {@see Account#analyzeNode} which determines
      * if each friend of an Account is part of the maximum clique
      *
-     * @return  the biggest {@link ArrayList<Account>} of Accounts in which everybody
+     * @return  the biggest {@link ArrayList<Account>} of Accounts in wh`ich everybody
      *          is a friend with one another.
      */
     public ArrayList<Account> findMaximumCliqueOfFriends () {
