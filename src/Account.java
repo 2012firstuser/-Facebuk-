@@ -51,10 +51,16 @@ public abstract class Account extends Page {
     public void setMoments (ArrayList<Moment> moments) {
         this._moments = moments;
     }
-    public void addMoment (Moment m) {this._moments.add(m);}
+
     /**
-     * TODO: Bryson, take care of this one :P
-     * @return
+     * Adds a singular moment to the running set of moments. Useful for creating tests
+     * @param m moment to be adeded
+     */
+    public void addMoment (Moment m) {this._moments.add(m);}
+
+    /**
+     * Gets the friend who an account is most happiest with on average
+     * @return an Account
      */
     public Account getFriendWithWhomIAmHappiest (){
         HashMap<Account, Float> friendMap = new HashMap<>();
@@ -84,8 +90,8 @@ public abstract class Account extends Page {
     }
 
     /**
-     * TODO: Bryson, take care of this one :P :P
-     * @return
+     * Gets the moment with the happiest average smile value
+     * @return happiest moment
      */
     public Moment getOverallHappiestMoment (){
         Moment happiestMoment = null;
@@ -100,9 +106,9 @@ public abstract class Account extends Page {
     }
 
     /**
-     * TODO: Bryson, take care of this one :P :P: :P
-     * @param m
-     * @return
+     * Gets the mean value of happiness across moment participants
+     * @param m a moment to get the mean happiness
+     * @return mean value of happiness
      */
     protected float momentMeanValue(Moment m){
         float totalHappiness = 0;
