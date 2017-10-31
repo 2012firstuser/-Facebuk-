@@ -16,6 +16,7 @@ public class UserTests {
         this.initPeople();
         this.initPets();
         this.createConnections();
+        this.createMoments();
     }
 
     private void initPeople() {
@@ -40,6 +41,7 @@ public class UserTests {
         personAFriends.add(this._personE);
         personAFriends.add(this._personD);
         personAFriends.add(this._personC);
+        personAFriends.add(this._petB);
 
         // Person B is friends with E, D, and C
         final ArrayList<Account> personBFriends = new ArrayList<>();
@@ -84,6 +86,12 @@ public class UserTests {
                 new ArrayList<Account>(Stream.of(this._personA, this._personB, this._petA, this._petB).collect(Collectors.toList())),
                 new ArrayList<Float>(Stream.of( 1f,2f,3f,4f).collect(Collectors.toList())));
 
+        this._personA.setMoments(new ArrayList<Moment>(Stream.of(this._momentA).collect(Collectors.toList())));
+    }
+
+    @Test
+    public void testHappiestFriend(){
+        assertEquals(this._personA.getFriendWithWhomIAmHappiest(), this._petB);
     }
     @Test
     public void testPeopleInits() {
@@ -98,6 +106,7 @@ public class UserTests {
         personAFriends.add(this._personE);
         personAFriends.add(this._personD);
         personAFriends.add(this._personC);
+        personAFriends.add(this._petB);
 
         assertEquals(this._personA.getFriends(), personAFriends);
 

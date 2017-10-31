@@ -80,6 +80,7 @@ public abstract class Account extends Page {
                 happiestFriend = a;
             }
         }
+
         return happiestFriend;
     }
 
