@@ -31,5 +31,5 @@ We realized that the Person and Pet class had a lot of attributes and methods in
 * isClique()
 * Getters & Setters for all attributes
  
-Additionally,within the Moment class Pet and Person are treated as practically the same object. In fact, we used 
+Additionally, within the Moment class Pet and Person are treated as practically the same object. In fact, we used 
 polymorphism in order to store Pet and Person in the same ArrayList. 
