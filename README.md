@@ -2,7 +2,9 @@
 
 #### Akash Shaji, Bryson Tang, Ankur Gupta
 
-We decided to create two additional classes on top of the required classes -- Account and Page. 
+We decided to create two additional classes on top of the required classes:
+1. `Account`
+2. `Page` 
 
 ### Page
 All of the objects in this project each have a
