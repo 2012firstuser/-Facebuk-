@@ -146,12 +146,12 @@ public class UserTests {
         assertTrue(Account.isClique(personAMaxClique));
     }
 
-    //Checks that the function only works on friends, not pets or non-friends.
+    //Checks that the function only works on friends.
     //Also checks that the null returns work correctly.
     @Test
     public void testOverallHappiestFriend()
     {
-        assertTrue(_personA.getFriendWithWhomIAmHappiest() == _personC);
+        assertTrue(_personA.getFriendWithWhomIAmHappiest() == _petB);
         assertTrue(new Person("T",new Image("test.png")).getFriendWithWhomIAmHappiest() == null);
         assertTrue(_personA.getOverallHappiestMoment()==_momentA);
         assertTrue(new Person("T",new Image("test.png")).getOverallHappiestMoment() == null);
